@@ -33,7 +33,7 @@ EXPOSE 5001
 # Command to run your application using Gunicorn (production server)
 # The default port Render expects is often 10000, but Gunicorn defaults to 8000.
 # We'll tell Gunicorn to bind to the port Render provides via the $PORT env var, or default to 5001 if testing locally.
-CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "--workers", "1", "app:app"]
+CMD gunicorn --bind 0.0.0.0:$PORT --workers 1 app:app
 # Note: Render automatically sets the $PORT environment variable.
 # For local testing, you might need to adjust or run Flask directly.
 # Or adjust the EXPOSE and CMD port if needed. Let's start with this.
